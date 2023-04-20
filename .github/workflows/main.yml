@@ -18,7 +18,8 @@ jobs:
        uses: jfrog/setup-jfrog-cli@v3
        env:
           JF_URL: https://superclient.jfrog.io/
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+          JF_USER: ${{ secrets.JF_USER }}
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
      - run: |
          jfrog rt docker-push latest docker
          jf rt bp
