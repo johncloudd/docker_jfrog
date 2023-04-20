@@ -23,5 +23,6 @@ jobs:
      - run: |
          jfrog rt docker-push latest docker
          jf rt bp
+         
 
   
