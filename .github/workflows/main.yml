@@ -21,8 +21,7 @@ jobs:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
      - run: |
-          jf rt dl artifacts/
-          jf rt u aether artifacts/
-          jf rt bp
+         jfrog rt docker-push latest docker
+         jf rt bp
 
   
