@@ -11,9 +11,9 @@ jobs:
        run: docker build -t python_app . 
 
      - name: upload docker image artifacts
-       uses: ishworkh/docker-image-artifact-download@v1
+       uses: ishworkh/docker-image-artifact-upload@v1
        with:
-         image: "latest" 
+         image: "python:latest" 
         #  name: docker_python_artifacts
         #  path: dist
 
