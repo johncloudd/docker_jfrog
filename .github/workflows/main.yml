@@ -13,6 +13,7 @@ jobs:
      - name: upload docker image artifacts
        uses: ishworkh/docker-image-artifact-download@v1
        with:
+         image: "latest" 
          name: docker_python_artifacts
          path: dist
 
