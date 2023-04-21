@@ -21,7 +21,7 @@ jobs:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
      - run: |
-         jfrog rt u python_app artifacts/ 
+         jfrog rt u docker artifacts/ 
          jf rt bp
 
 
