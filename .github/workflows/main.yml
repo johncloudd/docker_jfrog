@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
-        uses: actions/download-artifacts@v3
+        uses: ishworkh/docker-image-artifact-download@v1
         with:
           image: "python_app:latest"
 
