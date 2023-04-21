@@ -15,7 +15,7 @@ jobs:
        with:
          image: "python_app:latest" 
         #  name: docker_python_artifacts
-         path: dist
+        #  path: dist
 
   deploy:
     needs: build
@@ -33,7 +33,7 @@ jobs:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       - run: |
-         jfrog rt u python_app:latest artifactory-build-info/ 
+         jfrog rt u action_image_artifact_python_app_latest artifactory-build-info/ 
          jf rt bp
 
 
