@@ -21,7 +21,7 @@ jobs:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
      - run: |
-         jfrog rt docker-push latest docker
+         jfrog rt docker-push python_app/latest docker
          jf rt bp
 
 
