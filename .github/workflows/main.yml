@@ -10,8 +10,8 @@ jobs:
      - name: Build docker image
        run: docker build -t python_app . 
 
-     - name: upload artifacts
-       uses: actions/upload-artifact@v3
+     - name: upload docker image artifacts
+       uses: ishworkh/docker-image-artifact-download@v1
        with:
          name: docker_python_artifacts
          path: dist
