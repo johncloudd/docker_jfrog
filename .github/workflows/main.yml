@@ -14,8 +14,8 @@ jobs:
        uses: ishworkh/docker-image-artifact-download@v1
        with:
          image: "latest" 
-         name: docker_python_artifacts
-         path: dist
+        #  name: docker_python_artifacts
+        #  path: dist
 
   # deploy:
   #   needs: build
