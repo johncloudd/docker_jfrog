@@ -29,12 +29,17 @@ jobs:
       - name: push to artifactory
         uses: jfrog/setup-jfrog-cli@v3
         env:
-          JF_URL: https://superclient.jfrog.io/
+          JF_URL: https://superclient.jfrog.io/artifactory/docker-trial/
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      - run: |
-         jfrog rt u ./action_image_artifact_python_app_latest.zip artifactory-build-info/ 
-         jf rt bp
+        run: |
+          jf docker push ${{ JF_URL }} \
+          --build-name=docker-1 \
+          --build-number=1
+      # - run: |
+      #    jfrog rt u ./action_image_artifact_python_app_latest.zip artifactory-build-info/ 
+      #    jf rt bp
+
 
 
   
