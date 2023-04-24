@@ -17,27 +17,23 @@ jobs:
         #  name: docker_python_artifacts
         #  path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
-        uses: ishworkh/docker-image-artifact-download@v1
-        with:
-          image: "python_app:latest"
+     - name: Download artifacts
+       uses: ishworkh/docker-image-artifact-download@v1
+       with:
+        image: "python_app:latest"
 
-      - name: push to artifactory
-        uses: jfrog/setup-jfrog-cli@v3
-        env:
+     - name: push to artifactory
+       uses: jfrog/setup-jfrog-cli@v3
+       env:
           JF_URL: https://superclient.jfrog.io/artifactory/docker-trial/
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      - name: Deploy to jfrog 
-        run: |
+     - name: Deploy to jfrog 
+       run: |
           jf docker push https://superclient.jfrog.io/artifactory/docker-trial/ \
           --build-name=docker-1 \
           --build-number=1
-          
+
       # - run: |
       #    jfrog rt u ./action_image_artifact_python_app_latest.zip artifactory-build-info/ 
       #    jf rt bp
