@@ -32,6 +32,7 @@ jobs:
           JF_URL: https://superclient.jfrog.io/artifactory/docker-trial/
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+      - name: Deploy to jfrog 
         run: |
           jf docker push ${{ JF_URL }} \
           --build-name=docker-1 \
