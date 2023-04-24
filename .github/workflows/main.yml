@@ -37,6 +37,7 @@ jobs:
           jf docker push https://superclient.jfrog.io/artifactory/docker-trial/ \
           --build-name=docker-1 \
           --build-number=1
+          
       # - run: |
       #    jfrog rt u ./action_image_artifact_python_app_latest.zip artifactory-build-info/ 
       #    jf rt bp
