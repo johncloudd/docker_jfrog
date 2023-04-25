@@ -20,7 +20,7 @@ jobs:
        with:
          registry: https://superclient.jfrog.io/artifactory/docker-trial/
          username: ${{ secrets.JF_USER }}
-         password: ${{ secrets.JFROG_PASSWORD }}
+         password: ${{ secrets.JF_PASSWORD }}
 
      - name: Deploy to jfrog 
        run: |
