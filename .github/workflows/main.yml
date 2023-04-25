@@ -7,32 +7,53 @@ jobs:
      - name: Checkout main branch
        uses: actions/checkout@v3
 
-     - name: Build docker image
-       run: docker build -t python_app:latest . 
+     - name: Setup JFrog CLI
+       uses: jfrog/setup-jfrog-cli@v2
 
-     - name: upload docker image artifacts
-       uses: ishworkh/docker-image-artifact-upload@v1
+     - name: Build Docker images
+       uses: docker/build-push-action@v3 
        with:
-         image: "python_app:latest" 
-        #  name: docker_python_artifacts
-        #  path: dist
+         tags: python_app
 
-     - name: Download artifacts
-       uses: ishworkh/docker-image-artifact-download@v1
+     - name: login to jfrog
+       uses: docker/login-action@v1
        with:
-        image: "python_app:latest"
+         registry: https://superclient.jfrog.io/artifactory/docker-trial/
+         username: ${{ secrets.JF_USER }}
+         password: ${{ secrets.JFROG_PASSWORD }}
 
-     - name: push to artifactory
-       uses: jfrog/setup-jfrog-cli@v3
-       env:
-          JF_URL: https://superclient.jfrog.io/artifactory/docker-trial/
-          JF_USER: ${{ secrets.JF_USER }}
-          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
      - name: Deploy to jfrog 
        run: |
           jf docker push https://superclient.jfrog.io/artifactory/docker-trial/ \
           --build-name=docker-1 \
           --build-number=1
+
+    #  - name: Build docker image
+    #    run: docker build -t python_app:latest . 
+
+    #  - name: upload docker image artifacts
+    #    uses: ishworkh/docker-image-artifact-upload@v1
+    #    with:
+    #      image: "python_app:latest" 
+    #     #  name: docker_python_artifacts
+    #     #  path: dist
+
+    #  - name: Download artifacts
+    #    uses: ishworkh/docker-image-artifact-download@v1
+    #    with:
+    #     image: "python_app:latest"
+
+    #  - name: push to artifactory
+    #    uses: jfrog/setup-jfrog-cli@v3
+    #    env:
+    #       JF_URL: https://superclient.jfrog.io/artifactory/docker-trial/
+    #       JF_USER: ${{ secrets.JF_USER }}
+    #       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+    #  - name: Deploy to jfrog 
+    #    run: |
+    #       jf docker push https://superclient.jfrog.io/artifactory/docker-trial/ \
+    #       --build-name=docker-1 \
+    #       --build-number=1
 
       # - run: |
       #    jfrog rt u ./action_image_artifact_python_app_latest.zip artifactory-build-info/ 
