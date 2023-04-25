@@ -13,7 +13,7 @@ jobs:
      - name: Build Docker images
        uses: docker/build-push-action@v3 
        with:
-         tags: python_app
+         tags: ff9697bb6132
 
      - name: login to jfrog
        uses: docker/login-action@v1
@@ -24,8 +24,8 @@ jobs:
 
      - name: Deploy to jfrog 
        run: |
-         jf docker tag python_app superclient.jfrog.io/docker-trial/docker-trial/python_app:latest
-         jf docker push superclient.jfrog.io/artifactory/docker-trial/python_app:10
+         jf docker tag ff9697bb6132 superclient.jfrog.io/docker-trial/docker-trial/python_app:latest
+         jf docker push superclient.jfrog.io/artifactory/docker-trial/python_app:latest
 
     #  - name: Build docker image
     #    run: docker build -t python_app:latest . 
