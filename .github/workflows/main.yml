@@ -24,7 +24,6 @@ jobs:
 
      - name: Deploy to jfrog 
        run: |
-         jf docker tag 10 superclient.jfrog.io/docker-trial/jfrog_test:10
          jf docker push superclient.jfrog.io/artifactory/docker-trial/ \
          --build-name=jfrog_test \
          --build-number=10
