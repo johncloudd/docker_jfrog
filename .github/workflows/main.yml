@@ -24,7 +24,7 @@ jobs:
 
      - name: Deploy to jfrog 
        run: |
-          jf docker push https://superclient.jfrog.io/artifactory/docker-trial/ \
+          jf docker push "https://superclient.jfrog.io/artifactory/docker-trial/" \
           --build-name=docker-1 \
           --build-number=1
 
