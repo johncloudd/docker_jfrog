@@ -24,6 +24,7 @@ jobs:
 
      - name: Deploy to jfrog 
        run: |
+         jf docker tag 10 superclient.jfrog.io/docker-trial/docker-trial/python_app:10
          jf docker push superclient.jfrog.io/artifactory/docker-trial/python_app:10
 
     #  - name: Build docker image
