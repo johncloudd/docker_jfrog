@@ -18,8 +18,8 @@ jobs:
      - name: login to jfrog
        uses: docker/login-action@v1
        with:
-         registry: https://superclient.jfrog.io/artifactory/docker-trial/
-         user: ${{ secrets.JF_USER }}
+         registry: "https://superclient.jfrog.io/artifactory/docker-trial/"
+         username: ${{ secrets.JF_USER }}
          password: ${{ secrets.JF_PASSWORD }}
 
      - name: Deploy to jfrog 
