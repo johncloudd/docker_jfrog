@@ -24,9 +24,7 @@ jobs:
 
      - name: Deploy to jfrog 
        run: |
-         jf docker push superclient.jfrog.io/artifactory/docker-trial/ \
-         --build-name=python_app \
-         --build-number=10
+         jf docker push superclient.jfrog.io/artifactory/docker-trial/python_app:10
 
     #  - name: Build docker image
     #    run: docker build -t python_app:latest . 
