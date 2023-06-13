@@ -10,15 +10,15 @@ jobs:
      - name: Build docker image
        run: docker build -t python_app . 
 
-     - name: upload docker image artifacts
-       uses: ishworkh/docker-image-artifact-upload@v1
-       with:
-         image: "python_app:latest" 
+#      - name: upload docker image artifacts
+#        uses: ishworkh/docker-image-artifact-upload@v1
+#        with:
+#          image: "python_app:latest" 
 
      - name: Run Snyk to check Docker image for vulnerabilities
        uses: snyk/actions/docker@master
        env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
        with:
-        image: your/image-to-test
+        image: python_app
         
